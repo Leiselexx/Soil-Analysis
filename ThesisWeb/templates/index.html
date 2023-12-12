@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Prediction App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Model Prediction App</h1>
+    </header>
+
+    <nav>
+        <!-- Add navigation links if needed -->
+    </nav>
+
+    <main>
+        <section class="upload-section">
+            <form action="/predict_soil" method="post" enctype="multipart/form-data">
+                <label for="image">Upload Soil Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <button type="submit">Predict Soil</button>
+            </form>
+        </section>
+
+        <section class="results-section">
+            {% if soil_result %}
+                <p>{{ soil_result }}</p>
+            {% endif %}
+
+            {% if pH_result %}
+                <p>{{ pH_result }}</p>
+            {% endif %}
+
+            {% if crop_result %}
+                <p>{{crop_result}}</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
