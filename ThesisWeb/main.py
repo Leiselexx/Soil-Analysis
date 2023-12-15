@@ -6,6 +6,7 @@ import pandas as pd
 from ph_color import pH_Level
 from soilRecognition import SoilRecogClass
 from cropRecommendation import RecommendCrops
+import tempfile
 
 app = Flask(__name__)
 
@@ -18,17 +19,27 @@ cropRecommend = RecommendCrops()
 soil_model = tf.keras.models.load_model('soil_classification_model_v3.h5')
 df = pd.read_excel('cropsData.xlsx')
 
+
+@app.route('/readiness_check')
+def readiness_check():
+    # Perform checks to determine if the app is ready
+    return 'OK', 200
+
 @app.route('/')
 def home():
     return render_template('index.html')
+
+
 
 @app.route('/predict_soil', methods=['POST'])
 def predict_soil():
     if request.method == 'POST':
         # Get the uploaded image file and save it temporarily
         file = request.files['image']
-        image_path = 'temp_image.jpg'
-        file.save(image_path)
+        # Create a temporary file
+        with tempfile.NamedTemporaryFile(delete=False) as temp:
+            file.save(temp.name)
+            image_path = temp.name
 
         # Read the image using OpenCV
         img = cv2.imread(image_path)

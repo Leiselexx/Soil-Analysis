@@ -11,7 +11,7 @@ class RecommendCrops:
         pH_level = round(pH_level, 1)
         recommended_crops = df[df['pHLevel'] == pH_level]['Crops'].unique()
 
-        recommended_crops_text = "\n".join(
+        recommended_crops_text = ",".join(
             recommended_crops) if recommended_crops.size > 0 else 'No recommended crops found'
 
         return recommended_crops_text
