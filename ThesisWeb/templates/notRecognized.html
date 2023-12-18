@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Model Prediction App</title>
+    <title>Soil Not Recognized</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='notRecognized.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
 
     <div class="header">
-        <a href="/">HOME</a>
+        <a href="{{ url_for('home') }}">HOME</a>
         <a href="/about">ABOUT US</a>
         <a href="/contacts">CONTACT</a>
     </div>
 
+    <div class="container">
+        <div class="error-message-box">
+            <h2>Soil Not Recognized</h2>
+            <p>Sorry, we were unable to recognize the soil in your image. Please try uploading a different image.</p>
+        </div>
 
+        <div class="notRecognizedUploadAgain">
 
-    <main>
-
-        <div class="uploadCircle">
-            
-            <img src="../static/img1.png">
             <form id="soilPredictionForm" action="/predict_soil" method="post" enctype="multipart/form-data">
-                <input class="inputImage"type="file" id="image" name="image" accept="image/*" required>
-                <label for="image" class="custom-file-upload">Upload Image</label>
+                        <input class="inputImage"type="file" id="image" name="image" accept="image/*" required>
+                        <label for="image" class="custom-file-upload">Upload Image</label>
             </form>
-        
+
         </div>
 
         <script>
@@ -38,7 +39,7 @@
             }
             });
         </script>
+    </div>
 
-    </main>
 </body>
 </html>

@@ -1,31 +1,60 @@
 body {
+    display: flex;
+    flex-direction: column;
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
+    justify-content: center;
+    align-content: center;
+    background-image: url('../static/Frame 1.png'); /* Replace with the path to your image */
+    background-size: cover; /* This will ensure the image covers the entire screen */
+    background-position: center; /* This will center the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from tiling */
+    background-attachment: fixed; /* This will keep the image fixed while scrolling */
 }
 
-header {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
-nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+.header {
+    display: flex;
+    background-color: #B6C79A;
+    padding: 10px;
+    align-content: center;
+    align-items: center;
     text-align: center;
+    justify-content: center;
 }
+
+.header a{
+    align-items: center;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 
 main {
+    min-height: 100%; /* Add this line */
     width: 90%;
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
 }
 
 .upload-section {
@@ -34,6 +63,49 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+}
+
+.uploadCircle {
+    margin-top: 10%;
+   justify-content: center;
+   flex-direction: column;
+    border: 7px solid #B6C79A;
+    border-radius: 100%;
+    width: 350px;
+    height: 350px;
+    display: flex; /* Add this to make it a flex container */
+    align-items: center; /* Add this to vertically center content */
+}
+
+.inputImage{
+     width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.custom-file-upload {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 10px 10px;
+    cursor: pointer;
+    background-color: #80B281;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10px; /* Adjust as needed */
+    font-family: 'Montserrat', sans-serif;
+    width: 150px;
+    height: auto;
+    font-size: 12px;
+    align-items: center;
+}
+
+.custom-file-upload:hover{
+    background-color: #60A6A6;
 }
 
 .results-section {
@@ -70,6 +142,23 @@ button:hover {
 p {
     font-size: 18px;
     padding: 10px;
-    background-color: #fff;
     border-radius: 4px;
+}
+
+
+@media(max-width: 700px){
+    body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-content: center;
+    background-image: url('../static/mobileBG.png'); /* Replace with the path to your image */
+    background-size: cover; /* This will ensure the image covers the entire screen */
+    background-position: center; /* This will center the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from tiling */
+    background-attachment: fixed; /* This will keep the image fixed while scrolling */
+}
 }

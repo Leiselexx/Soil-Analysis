@@ -1,0 +1,24 @@
+.content-container {
+    width: 80%;
+    margin: 20px auto 10px auto;
+    padding: 20px;
+    border: 7px solid #B6C79A;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container h1, .content-container h2 {
+    color: #B6C79A;
+    margin-bottom: 10px;
+}
+
+.content-container p {
+    font-family: 'Montserrat', sans-serif;
+    text-align: justify;
+    margin: auto;
+    padding: 5px;
+}
+
+/* Include any other specific styles you might need */

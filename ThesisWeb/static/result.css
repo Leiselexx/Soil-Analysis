@@ -1,0 +1,235 @@
+.container {
+    width: 90%;
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* Add space between child elements */
+    margin: 0px;
+    align-items: center;
+}
+
+h3 {
+    margin-left: 10%;
+    color: #60A6A6;
+}
+
+p{
+	color: #60A6A6;
+}
+
+.firstBox {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    
+    
+}
+
+.soil_type, .pHLevel {
+    border: 7px solid #B6C79A;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.soil_type{
+	height: 150px;
+	margin-bottom: 0px;
+	margin-top: -25px;
+}
+
+.pHLevel{
+	margin-top: 25px;
+	height: 250px;
+	margin-bottom: 0px;
+	display: flex;
+	justify-content: center;
+}
+
+.pHLevel .typeCircle{
+	border-radius: 100%;
+	height: 100px;
+	width: 100px;
+	margin-top: 10px;
+
+}
+
+.typeCircle {
+    border-radius: 20px;
+    border: 1px solid #B6C79A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    height: 40px;
+    margin: auto;
+}
+
+.resultImage {
+	width: 200px; /* Width of the cropping area */
+    height: 200px; /* Height of the cropping area */
+    overflow: hidden; /* Hide parts of the image outside this container */
+    border-radius: 100%; /* Optional: for a circular crop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 7px solid #B6C79A;;
+}
+
+.resultImage img{
+    object-position: center;
+    width: 350px;
+    height: 350px;
+}
+
+
+.secondBox{
+	display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    width: 350px;
+    height: 400px;
+    border: 7px solid #B6C79A;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+    margin: 10px;
+
+
+}
+
+.secondBox .custom-file-upload{
+	margin: 20px auto 10px auto;
+}
+
+
+.thirdBox{
+	display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    width: 350px;
+    height: 400px;
+    border: 7px solid #B6C79A;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+
+}
+
+.thirdBox h3{
+	margin: 0px;
+	margin-bottom: 5%;
+}
+
+.cropBox{
+	overflow-y: auto; /*scroll bar*/
+	width: 95%;
+	height: 90%;
+}
+
+.crops-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #60A6A6;
+}
+
+.crop-item {
+    border: 1px solid #B6C79A;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 20px;
+    width: 90%;
+}
+
+
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .firstBox, .secondBox, .thirdBox {
+        width: 90%;
+       
+    }
+
+    .firstBox{
+    	border: 4px solid #B6C79A;
+    	display: flex;
+    	flex-direction: column;
+    	height: 140px;
+    	justify-content: space-between;
+    	align-items: center;
+    	align-content: center;
+    	padding: 5px;
+    	border-radius: 20px;
+    	background-color: white;
+    	width: 100%;
+
+    }
+
+    .soil_type, .pHLevel{
+    	display: flex;
+    	flex-direction: row;
+    	border: hidden;
+    	padding: 5px;
+    	margin: auto;
+    	justify-content: space-between;
+    }
+
+    .soil_type .typeCircle, .pHLevel .typeCircle{
+    	border-radius: 20px;
+    	border: 2px solid #B6C79A;
+    	height: 40px;
+    	width: 180px;
+    }
+
+    h3 {
+    	margin-left: 10px;
+        margin-right: 20px;
+    }
+
+    .secondBox{
+    	margin-top: 15px;
+    	border: hidden;
+    	height: 200px;
+    }
+
+    .resultImage{
+    	width: 150px;
+    	height: 150px;
+    	border: 7px solid #B6C79A;
+    }
+
+    .resultImage img {
+        width: 250px;
+        height: auto;
+    }
+
+    .thirdBox{
+    	width: 90%;
+    	height: 200px;
+    	border: 4px solid #B6C79A;
+
+    }
+
+    .crop-item {
+        width: 90%;
+    }
+
+    .thirdBox h3 {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Prediction App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
+</head>
+<body>
+
+
+
+    <div class="header">
+        <a href="{{ url_for('home') }}">HOME</a>
+        <a href="/about">ABOUT US</a>
+        <a href="/contacts">CONTACT</a>
+    </div>
+
+    <div class="container">
+
+        <div class="firstBox">
+
+            <div class="soil_type">
+
+                <h3>Soil Type</h3>
+                <div class="typeCircle">
+                    {% if soil_result %}
+                        <p>{{ soil_result }}</p>
+                    {% endif %}
+                </div>
+
+            </div>
+
+            <div class="pHLevel">
+
+                <h3>pH Level</h3>
+                <div class="typeCircle">
+                    {% if pH_result %}
+                    <p>{{ pH_result }}</p>
+                    {% endif %}
+                </div>
+
+            </div>     
+
+        </div>
+
+        <div class="secondBox">
+            
+            <div class="resultImageUpload">
+                <div class="resultImage">
+                    {% if soilImg %}
+                        <img src="{{ soilImg }}" alt="Soil Image">
+                    {% endif %}
+                </div>
+                <form id="soilPredictionForm" action="/predict_soil" method="post" enctype="multipart/form-data">
+                    <input class="inputImage"type="file" id="image" name="image" accept="image/*" required>
+                    <label for="image" class="custom-file-upload">Upload Image</label>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('image').addEventListener('change', function() {
+            // Check if any file is selected
+            if (this.files && this.files.length > 0) {
+            document.getElementById('soilPredictionForm').submit();
+            }
+            });
+        </script>
+
+        <div class="thirdBox">
+
+            <h3>Crop Recommendation</h3>
+
+            <div class="cropBox">
+
+                {% if crop_result %}
+                    <div class="crops-list">
+                        {% for crop in crop_result %}
+                            <div class="crop-item">{{ crop }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No crops to display.</p>
+                {% endif %}
+
+            </div>
+
+        
+    </div>
+
+    </div>
+
+
+</body>
+</html>
