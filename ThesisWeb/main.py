@@ -84,6 +84,9 @@ def predict_soil():
             if is_soil_recognized:
                 # Soil is recognized, proceed with pH and soil classification
                 pH_level = ph_level_predictor.pHRecognition(img)  # Pass the resized image for pH recognition
+                colors = ph_level_predictor.dominantColorChecker(img)
+                values_list = colors[0].tolist()
+                red, green, blue = colors
 
                 # Make a prediction using the soil classification model
                 soil_classification_prediction = soil_model.predict(check_img)
@@ -92,6 +95,15 @@ def predict_soil():
 
                 # Define soil classes
                 classes = ['CLAY', 'LOAM', 'SANDY']
+
+                soil_definitions = {
+                    'CLAY': 'Clay soil is characterized by fine particles. It retains water well but can become compacted.',
+                    'LOAM': 'Loam soil is a balanced mixture of sand, silt, and clay. It is ideal for plant growth.',
+                    'SANDY': 'Sandy soil has larger particles and drains quickly. It may require more frequent watering.'
+                }
+
+                #This is to only show the predicted soil type definition.
+                soil_definition = soil_definitions.get(f'{classes[predicted_class]}', 'No definition available.')
 
                 # Create a URL for the image
                 if app.config.get('ENV', 'production')== 'production':
@@ -103,7 +115,11 @@ def predict_soil():
                 # Return the combined results
                 return render_template('results.html',
                                        soil_result=f'{classes[predicted_class]}',
+                                       soil_definition=soil_definition,
                                        pH_result=f'{pH_level:.2f}',
+                                       redMeter=(red/255)*100,
+                                       greenMeter=(green / 255) * 100,
+                                       blueMeter=(blue / 255) * 100,
                                        crop_result=crop_recommendation,
                                        soilImg=image_url)
             else:

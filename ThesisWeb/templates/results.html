@@ -10,44 +10,43 @@
 </head>
 <body>
 
-
-
     <div class="header">
         <a href="{{ url_for('home') }}">HOME</a>
         <a href="/about">ABOUT US</a>
-        <a href="/contacts">CONTACT</a>
+        <a href="/crop">Crop Recommendation</a>
     </div>
 
+    <p class="Soil-Analysis-Name">Soil Analysis</p>
     <div class="container">
 
         <div class="firstBox">
-
             <div class="soil_type">
-
-                <h3>Soil Type</h3>
+                <div class="soil_type_name">
+                <p>Soil Type</p>
                 <div class="typeCircle">
                     {% if soil_result %}
                         <p>{{ soil_result }}</p>
                     {% endif %}
                 </div>
-
-            </div>
-
-            <div class="pHLevel">
-
-                <h3>pH Level</h3>
-                <div class="typeCircle">
-                    {% if pH_result %}
-                    <p>{{ pH_result }}</p>
-                    {% endif %}
+                </div>
+                <div class="soil_def">                
+                    <p>{{ soil_definition }}</p>
                 </div>
 
-            </div>     
 
+            </div>
+            <div class="pHLevel">
+                <p>pH Level</p>
+                <div class="typeCircle">
+                    {% if pH_result %}
+                        <p>{{ pH_result }}</p>
+                    {% endif %}
+                </div>
+                
+            </div>
         </div>
 
         <div class="secondBox">
-            
             <div class="resultImageUpload">
                 <div class="resultImage">
                     {% if soilImg %}
@@ -55,44 +54,80 @@
                     {% endif %}
                 </div>
                 <form id="soilPredictionForm" action="/predict_soil" method="post" enctype="multipart/form-data">
-                    <input class="inputImage"type="file" id="image" name="image" accept="image/*" required>
+                    <input class="inputImage" type="file" id="image" name="image" accept="image/*" required>
                     <label for="image" class="custom-file-upload">Upload Image</label>
                 </form>
             </div>
         </div>
 
-        <script>
-            document.getElementById('image').addEventListener('change', function() {
-            // Check if any file is selected
-            if (this.files && this.files.length > 0) {
-            document.getElementById('soilPredictionForm').submit();
-            }
-            });
-        </script>
+       
 
         <div class="thirdBox">
 
-            <h3>Crop Recommendation</h3>
+            <div class="cropRecommendation">
+                <p>Crop Recommendation</p>
 
-            <div class="cropBox">
-
-                {% if crop_result %}
-                    <div class="crops-list">
-                        {% for crop in crop_result %}
-                            <div class="crop-item">{{ crop }}</div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <p>No crops to display.</p>
-                {% endif %}
-
+                <div class="cropBox">
+                    
+                    {% if crop_result %}
+                        <div class="crops-list">
+                            {% for crop in crop_result %}
+                                <div class="crop-item">{{ crop }}</div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>No crops to display.</p>
+                    {% endif %}
+                </div>
             </div>
 
-        
+            <div class="rgbColors">
+                <div class="top_RGBColors">
+                <p>RGB Values</p>
+                <div class="infoRGB">
+                    <p>i</p>
+                    <div class="info_box">
+                        <p>In this study, RGB colors were used to identify the pH level of the soil. The percentages shown here are based on 255, which is the maximum value in the RGB color scale. This means that the measurements are relative to the highest possible intensity of color.</p>
+                    </div>
+                </div>
+                </div>
+                <div class="colorMeters">
+
+                    <div class="redMeter">
+                        <p class="colorPercent"> {{ redMeter | round(2)}}%</p>
+                        <p class="colorLabel">red</p>
+                        <span style="height: {{ redMeter }}%"></span>
+                       
+                    </div>
+                    <div class="greenMeter">
+                        <p class="colorLabel">green</p>
+                        <span style="height: {{ greenMeter }}%"></span>
+                        <p class="colorPercent"> {{ greenMeter | round(2)}}%</p>
+                    </div>
+                    <div class="blueMeter">
+                        <p class="colorLabel">blue</p>
+                        <span style="height: {{ blueMeter }}%"></span>
+                        <p class="colorPercent"> {{ blueMeter | round(2)}}%</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    </div>
+     <script>
+            document.getElementById('image').addEventListener('change', function() {
+                // Check if any file is selected
+                if (this.files && this.files.length > 0) {
+                    document.getElementById('soilPredictionForm').submit();
+                }
+            });
+        </script>
 
+    <div class="plants">
+        <img src="../static/plant.png">
+        <img src="../static/plant2.png">
+    </div>
 
 </body>
 </html>

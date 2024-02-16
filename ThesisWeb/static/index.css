@@ -6,7 +6,7 @@ body {
     padding: 0;
     justify-content: center;
     align-content: center;
-    background-image: url('../static/Frame 1.png'); /* Replace with the path to your image */
+    background-image: url('../static/bg.png'); /* Replace with the path to your image */
     background-size: cover; /* This will ensure the image covers the entire screen */
     background-position: center; /* This will center the image on the page */
     background-repeat: no-repeat; /* This will prevent the image from tiling */
@@ -14,25 +14,29 @@ body {
 }
 
 body, html {
+    width: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    
 }
 
 .header {
     display: flex;
     background-color: #B6C79A;
-    padding: 10px;
+    padding: 14px;
     align-content: center;
     align-items: center;
     text-align: center;
     justify-content: center;
+    width: 100%;
 }
 
 .header a{
     align-items: center;
     text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
     padding-bottom: 5px;
     padding-top: 5px;
     text-decoration: none;

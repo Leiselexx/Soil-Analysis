@@ -1,52 +1,103 @@
+body, html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.Soil-Analysis-Name{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+    color: #60A6A6;
+}
 .container {
-    width: 90%;
-    padding: 5%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around; /* Add space between child elements */
     margin: 0px;
     align-items: center;
+    height: 500px;
+    margin-top: 30px;
+    justify-content: center;
 }
 
 h3 {
     margin-left: 10%;
     color: #60A6A6;
+    font-family: 'Montserrat';
 }
 
-p{
+.container p{
 	color: #60A6A6;
+    font-size: 18px;
+    padding: 0;
 }
 
 .firstBox {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 400px;
-    
-    
+    height: 100%;
+    width: 30%;
+    margin-right: 0;
+    justify-content: space-between;
 }
 
-.soil_type, .pHLevel {
-    border: 7px solid #B6C79A;
-    border-radius: 20px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 .soil_type{
-	height: 150px;
+	height: 55%;
 	margin-bottom: 0px;
-	margin-top: -25px;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+
+}
+
+.soil_type .typeCircle{
+    margin-right: 30px;
+}
+
+.soil_type_name{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+
+.soil_def{
+    width: 80%;
+    text-align: center;
 }
 
 .pHLevel{
-	margin-top: 25px;
-	height: 250px;
+	height: 42%;
 	margin-bottom: 0px;
 	display: flex;
 	justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    border-radius: 20px;
+    align-content: center;
+}
+
+.pHLevel p{
+    margin-left: 20%;
+    margin-top: 30px;
 }
 
 .pHLevel .typeCircle{
@@ -67,6 +118,11 @@ p{
     width: 90%;
     height: 40px;
     margin: auto;
+}
+
+.pHLevel .typeCircle p{
+    text-align: center;
+    margin: 0;
 }
 
 .resultImage {
@@ -90,36 +146,30 @@ p{
 .secondBox{
 	display: flex;
     flex-direction: column;
-    padding: 20px;
     justify-content: center;
-    width: 350px;
-    height: 400px;
-    border: 7px solid #B6C79A;
+    width: 400px;
+    height: 100%;
     align-items: center;
     border-radius: 20px;
     background-color: white;
-    margin: 10px;
+    margin: 0px 30px 0px 30px;
 
 
 }
 
 .secondBox .custom-file-upload{
-	margin: 20px auto 10px auto;
+	margin: 50px auto 10px auto;
 }
 
 
 .thirdBox{
 	display: flex;
     flex-direction: column;
-    padding: 20px;
-    justify-content: center;
-    width: 350px;
-    height: 400px;
-    border: 7px solid #B6C79A;
+    width: 30%;
+    height: 100%;
     align-items: center;
     border-radius: 20px;
-    background-color: white;
-
+    justify-content: space-between;
 }
 
 .thirdBox h3{
@@ -127,16 +177,35 @@ p{
 	margin-bottom: 5%;
 }
 
+.cropRecommendation{
+    width: 100%;
+    background-color: white;
+    height: 52%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.cropRecommendation p, .rgbColors p{
+    margin-left: 15%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
 .cropBox{
 	overflow-y: auto; /*scroll bar*/
-	width: 95%;
-	height: 90%;
+	width: 85%;
+	height: 60%;
 }
 
 .crops-list {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     color: #60A6A6;
 }
 
@@ -150,18 +219,196 @@ p{
 
 
 
-p {
+p{
     font-family: 'Montserrat', sans-serif;
     margin: 0;
 }
 
+.rgbColors{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    height: 45%;
+    border-radius: 20px;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    position: relative;
+}
+
+.top_RGBColors{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.top_RGBColors .infoRGB{
+    margin-right: 30px;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+}
+
+.top_RGBColors .infoRGB p{
+    border: 2px solid #B6C79A;
+    justify-items: center;
+    text-align: center;
+    align-content: center;
+    margin: 0;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+
+.infoRGB .info_box p{
+    border: 0px solid transparent;
+    background-color: white;
+    position: absolute;
+    border-radius: 0;
+    right: 0;
+    font-size: 12px;
+    width: 300px;
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 3;
+    border: 2px solid #B6C79A;
+    display: none;
+}
+
+.infoRGB:hover .info_box p{
+    display: block;
+}
+
+
+
+
+.rgbColors p{
+    text-align: left;
+    width: 100%;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.colorMeters{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+.redMeter, .greenMeter, .blueMeter {
+    width: 35px;
+    height: 100px;
+    border-radius: 30%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+
+}
+
+.redMeter .colorPercent, .greenMeter .colorPercent, .blueMeter .colorPercent{
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    align-items: center;
+    width: 35px;
+    border-radius: 100%;
+    margin: 0;
+    
+}
+
+
+
+
+
+
+.colorMeters .colorLabel {
+    font-size: 13px;
+    text-align: center;
+    margin: 0;
+    color: #B6C79A;
+
+}
+
+.redMeter span, .greenMeter span, .blueMeter span {
+    display: block;
+    width: 100%;
+    border-radius: 30px;
+    bottom: 0;
+    text-align: center;
+    align-items: center;
+
+}
+
+.redMeter span {
+    background-color: #AF4E4E;
+}
+
+.greenMeter span {
+    background-color: #B6C79A;
+}
+
+.blueMeter span {
+    background-color: #60A6A6;
+}
+
+
+
+
+.plants{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: space-between;
+    width: 105%;
+    margin-top: 45%;
+    
+}
+
+.plants img{
+    width: 200px;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 700px) {
-    .container {
-        flex-direction: column;
+
+    body{
+        background-color: white;
+        background-image: none;
+        margin: 0;
+        padding: 0;
+        
+
     }
 
+    .Soil-Analysis-Name{
+        margin-bottom: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+        margin: 0;
+    }
+
+
     .firstBox, .secondBox, .thirdBox {
-        width: 90%;
+        width: 85%;
+        margin: 0;
        
     }
 
@@ -175,26 +422,54 @@ p {
     	align-content: center;
     	padding: 5px;
     	border-radius: 20px;
-    	background-color: white;
-    	width: 100%;
+    	background-color: transparent;
+    	margin-bottom: 30px;
 
     }
 
-    .soil_type, .pHLevel{
+    .soil_type{
+        background-color: transparent;
+        margin-bottom: 10px;
+    }
+
+    
+
+    .soil_type_name, .pHLevel{
     	display: flex;
     	flex-direction: row;
     	border: hidden;
-    	padding: 5px;
-    	margin: auto;
+    	padding: 0;
+    	margin: 0;
     	justify-content: space-between;
+        background-color: transparent;
+        width: 80%;
+        text-align: center;
     }
 
-    .soil_type .typeCircle, .pHLevel .typeCircle{
+    .soil_type_name p, .pHLevel p{
+        text-align: left;
+        align-items: center;
+        margin: 0;
+
+    }
+
+    .soil_def p{
+        display: none;
+    }
+
+    .soil_type_name .typeCircle, .pHLevel .typeCircle{
     	border-radius: 20px;
     	border: 2px solid #B6C79A;
     	height: 40px;
-    	width: 180px;
+    	width: 50%;
+        margin: 0;
+        align-items: center;
     }
+
+    .soil_type_name .typeCircle p, .pHLevel .typeCircle p{
+        text-align: center;
+    }
+
 
     h3 {
     	margin-left: 10px;
@@ -205,25 +480,46 @@ p {
     	margin-top: 15px;
     	border: hidden;
     	height: 200px;
+        margin-bottom: 30px;
+        background-color: transparent;
     }
 
     .resultImage{
     	width: 150px;
     	height: 150px;
     	border: 7px solid #B6C79A;
+        margin-bottom: 0;
+
     }
 
     .resultImage img {
         width: 250px;
+        margin-bottom: 0;
         height: auto;
+
+    }
+
+    .custom-file-upload{
+        margin: 0;
+        margin-top: -50px;
     }
 
     .thirdBox{
     	width: 90%;
-    	height: 200px;
+    	height: 100px;
     	border: 4px solid #B6C79A;
+        margin: 0;
+        background-color: transparent;
 
     }
+
+    .cropRecommendation{
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
 
     .crop-item {
         width: 90%;
@@ -232,4 +528,14 @@ p {
     .thirdBox h3 {
         margin-left: 0;
     }
+
+    .rgbColors{
+        
+        display: none;
+    }
+
+    .plants{
+        display: none;
+    }
+
 }
