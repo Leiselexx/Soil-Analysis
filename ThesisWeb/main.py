@@ -43,9 +43,9 @@ def results():
 def about():
     return render_template('about.html')
 
-@app.route('/contacts')
+@app.route('/crop')
 def contacts():
-    return render_template('contacts.html')
+    return render_template('crop.html')
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
@@ -129,6 +129,13 @@ def predict_soil():
         else:
             # No file was uploaded
             return render_template('index.html', error="No file uploaded.")
+
+@app.route('/get_crop_recommendations', methods=['POST'])
+def get_crop_recommendations():
+    if request.method == 'POST':
+        pH_level = float(request.form['pH_level'])  # Extract pH level from the form
+        crop_recommendations = cropRecommend.recommend_crops_for_pH(pH_level, df)
+        return render_template('crop.html', crop_recommendations=crop_recommendations)
             
 if __name__ == '__main__':
     #app.run(debug=True)
