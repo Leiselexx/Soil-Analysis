@@ -32,6 +32,7 @@ h3 {
     font-family: 'Montserrat';
 }
 
+
 .container p{
 	color: #60A6A6;
     font-size: 18px;
@@ -537,5 +538,10 @@ p{
     .plants{
         display: none;
     }
+
+}
+
+@media(max-width: 700px){
+
 
 }

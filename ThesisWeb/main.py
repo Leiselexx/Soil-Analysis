@@ -8,11 +8,12 @@ from soilRecognition import SoilRecogClass
 from cropRecommendation import RecommendCrops
 import tempfile
 from werkzeug.utils import secure_filename
+from pathlib import Path
+
 import os
 import shutil
 
-
-
+#testtttttt
 app = Flask(__name__)
 
 # Initialize models and classes
